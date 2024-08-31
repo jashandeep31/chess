@@ -7,7 +7,7 @@ const Chess = () => {
   const [chessBoxes, setChessBoxes] = useState(chessBoxesImport);
   useEffect(() => {
     setChessBoxes([...intialState(chessBoxes)]);
-  }, [chessBoxes]);
+  }, []);
 
   return (
     <div className="container ">
