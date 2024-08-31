@@ -15,13 +15,24 @@ const ChessBox = ({
       className={` aspect-square  flex items-center justify-center border ${
         index % 2 !== 0 && parentIndex % 2 !== 0
           ? "bg-[#ebeccf]"
-          : "bg-green-500"
+          : ""
       } 
-           ${
-             index % 2 === 0 && parentIndex % 2 === 0
-               ? "bg-[#ebeccf]"
-               : "bg-green-500"
-           }`}
+      ${
+        index % 2 === 0 && parentIndex % 2 === 0
+          ? "bg-[#ebeccf]"
+          : ""
+      } 
+      ${
+        index % 2 === 0 && parentIndex % 2 !== 0
+          ? "bg-green-500"
+          : ""
+      } 
+      ${
+        index % 2 !== 0 && parentIndex % 2 === 0
+          ? "bg-green-500"
+          : ""
+      } 
+           `}
     >
       {col.piece ? <i className={cn(col.piece, "text-3xl ")}></i> : null}
     </div>
