@@ -1,0 +1,88 @@
+export interface IChessBox {
+  row: number;
+  col: string;
+  piece: null | string;
+}
+
+export const chessBoxes: IChessBox[][] = [
+  [
+    { row: 1, col: "a", piece: null },
+    { row: 1, col: "b", piece: null },
+    { row: 1, col: "c", piece: null },
+    { row: 1, col: "d", piece: null },
+    { row: 1, col: "e", piece: null },
+    { row: 1, col: "f", piece: null },
+    { row: 1, col: "g", piece: null },
+    { row: 1, col: "h", piece: null },
+  ],
+  [
+    { row: 2, col: "a", piece: null },
+    { row: 2, col: "b", piece: null },
+    { row: 2, col: "c", piece: null },
+    { row: 2, col: "d", piece: null },
+    { row: 2, col: "e", piece: null },
+    { row: 2, col: "f", piece: null },
+    { row: 2, col: "g", piece: null },
+    { row: 2, col: "h", piece: null },
+  ],
+  [
+    { row: 3, col: "a", piece: null },
+    { row: 3, col: "b", piece: null },
+    { row: 3, col: "c", piece: null },
+    { row: 3, col: "d", piece: null },
+    { row: 3, col: "e", piece: null },
+    { row: 3, col: "f", piece: null },
+    { row: 3, col: "g", piece: null },
+    { row: 3, col: "h", piece: null },
+  ],
+  [
+    { row: 4, col: "a", piece: null },
+    { row: 4, col: "b", piece: null },
+    { row: 4, col: "c", piece: null },
+    { row: 4, col: "d", piece: null },
+    { row: 4, col: "e", piece: null },
+    { row: 4, col: "f", piece: null },
+    { row: 4, col: "g", piece: null },
+    { row: 4, col: "h", piece: null },
+  ],
+  [
+    { row: 5, col: "a", piece: null },
+    { row: 5, col: "b", piece: null },
+    { row: 5, col: "c", piece: null },
+    { row: 5, col: "d", piece: null },
+    { row: 5, col: "e", piece: null },
+    { row: 5, col: "f", piece: null },
+    { row: 5, col: "g", piece: null },
+    { row: 5, col: "h", piece: null },
+  ],
+  [
+    { row: 6, col: "a", piece: null },
+    { row: 6, col: "b", piece: null },
+    { row: 6, col: "c", piece: null },
+    { row: 6, col: "d", piece: null },
+    { row: 6, col: "e", piece: null },
+    { row: 6, col: "f", piece: null },
+    { row: 6, col: "g", piece: null },
+    { row: 6, col: "h", piece: null },
+  ],
+  [
+    { row: 7, col: "a", piece: null },
+    { row: 7, col: "b", piece: null },
+    { row: 7, col: "c", piece: null },
+    { row: 7, col: "d", piece: null },
+    { row: 7, col: "e", piece: null },
+    { row: 7, col: "f", piece: null },
+    { row: 7, col: "g", piece: null },
+    { row: 7, col: "h", piece: null },
+  ],
+  [
+    { row: 8, col: "a", piece: null },
+    { row: 8, col: "b", piece: null },
+    { row: 8, col: "c", piece: null },
+    { row: 8, col: "d", piece: null },
+    { row: 8, col: "e", piece: null },
+    { row: 8, col: "f", piece: null },
+    { row: 8, col: "g", piece: null },
+    { row: 8, col: "h", piece: null },
+  ],
+];
