@@ -64,9 +64,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.container {
-  width: 70%;
-  margin: 0 auto;
-}
-/* MEDIA QUERY */

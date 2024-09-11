@@ -10,26 +10,21 @@ const Chess = () => {
   }, []);
 
   return (
-    <div className="container ">
-      <div className="mt-12">
-        <h1 className="text-lg font-bold ">Chess</h1>
-        <div className="w-1/2 mx-auto">
-          {[...chessBoxes].reverse().map((row, parentIndex) => {
-            return (
-              <div className="grid grid-cols-8" key={parentIndex}>
-                {row.map((col, index) => (
-                  <ChessBox
-                    key={index}
-                    parentIndex={parentIndex}
-                    index={index}
-                    col={col}
-                  />
-                ))}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <div className="lg:w-1/2 md:w-3/5 sm:w-4/5 w-full sm:mx-auto ">
+      {[...chessBoxes].reverse().map((row, parentIndex) => {
+        return (
+          <div className="grid grid-cols-8 " key={parentIndex}>
+            {row.map((col, index) => (
+              <ChessBox
+                key={index}
+                parentIndex={parentIndex}
+                index={index}
+                col={col}
+              />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };
