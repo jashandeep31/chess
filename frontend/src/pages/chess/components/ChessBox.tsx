@@ -34,7 +34,7 @@ const ChessBox = ({
       } 
            `}
     >
-      {col.piece ? <i className={cn(col.piece, "text-3xl ")}></i> : null}
+      {col.piece ? <i className={cn(col.piece, "sm:text-4xl text-3xl ")}></i> : null}
     </div>
   );
 };
