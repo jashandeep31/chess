@@ -1,5 +1,15 @@
+import Navbar from "./components/Navbar";
+
 function landing() {
-  return <div>landing</div>;
+  return (
+    <>
+      <Navbar />
+      {/* <Hero />
+      <About />
+      <Tutorials />
+      <Footer /> */}
+    </>
+  );
 }
 
 export default landing;

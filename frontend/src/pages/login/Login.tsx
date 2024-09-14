@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 const LoginPage = () => {
   return (
-    <div className="container md:mt-12">
+    <div className="container  flex justify-center items-center h-screen">
       <a
         className={cn(buttonVariants())}
         href="http://localhost:8000/api/v1/auth/google/callback"
