@@ -1,14 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Chess from "./pages/chess/page";
-import "./index.css";
-import LoginPage from "./pages/Login";
+import "./assets/styles/index.css";
+import LoginPage from "./pages/login/Login";
+import Chess from "./pages/chess/Chess";
+import Landing from "./pages/landing/Landing";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Landing />,
   },
   {
     path: "/chess",
