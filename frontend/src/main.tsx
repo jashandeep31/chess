@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Chess from "./pages/chess/page";
-import "./index.css";
+import "./assets/styles/index.css";
 import LoginPage from "./pages/Login";
 
 const router = createBrowserRouter([
