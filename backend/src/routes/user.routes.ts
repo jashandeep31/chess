@@ -12,9 +12,11 @@ routes.route("/profile").get((req, res) => {
   if (!req.isAuthenticated() || !user) {
     return res.status(401).json({
       message: "Unauthorized",
+      session: null,
     });
   }
   return res.status(200).json({
+    message: "User profile",
     session: {
       id: user.id,
       email: user.emails[0].value,

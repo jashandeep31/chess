@@ -4,7 +4,7 @@ import { createServer } from "node:http";
 import { Server } from "socket.io";
 import passport, { session } from "passport";
 import expressSession from "express-session";
-
+import cors from "cors";
 // routes import
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
@@ -26,6 +26,12 @@ const expressSessionConfig: expressSession.SessionOptions = {
 };
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(expressSession(expressSessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());

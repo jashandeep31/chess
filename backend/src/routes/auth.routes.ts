@@ -6,7 +6,7 @@ routes.route("/google/callback").get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     failureRedirect: "http://localhost:5173/",
-    successRedirect: "http://localhost:5173/chess",
+    successRedirect: "http://localhost:5173/",
   })
 );
 
