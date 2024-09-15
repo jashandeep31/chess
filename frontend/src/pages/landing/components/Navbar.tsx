@@ -7,29 +7,21 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Navbar() {
-  const [session, setSession] = useState<null | {
-    id: string;
-    avatar: string;
-    name: string;
-  }>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [session, setSession] = useState<any>();
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get(
+      const response = await axios.get(
         "http://localhost:8000/api/v1/users/profile",
         {
           withCredentials: true,
         }
       );
-      // {
-      //   id: string;
-      //   avatar: string;
-      //   name: string;
-      // }
-      setSession(res.data.session);
+      console.log(response.data.session);
+      setSession(response.data.session);
     })();
   }, []);
-
   return (
     <>
       <nav className="w-full   p-4 flex items-center justify-around">
@@ -51,7 +43,7 @@ function Navbar() {
 
         {session ? (
           <div>
-            <img className="w-12 rounded-full" src={session.avatar} alt="" />
+            <img src={session.avatar} className="h-10 rounded-full" />
           </div>
         ) : (
           <div>
