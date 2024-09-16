@@ -3,24 +3,12 @@ import chess from "../assets/chess.svg";
 import navLinks from "../constants";
 import { Link } from "react-router-dom";
 import { buttonVariants } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import UserContext from "@/context/UserContext";
 
 function Navbar() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [session, setSession] = useState<any>();
+  const { session } = useContext(UserContext);
 
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        "http://localhost:8000/api/v1/users/profile",
-        {
-          withCredentials: true,
-        }
-      );
-      setSession(response.data.session);
-    })();
-  }, []);
   return (
     <>
       <nav className="w-full   p-4 flex items-center justify-around">

@@ -5,6 +5,7 @@ import "./assets/styles/index.css";
 import LoginPage from "./pages/login/Login";
 import Chess from "./pages/chess/Chess";
 import Landing from "./pages/landing/Landing";
+import UserContextProvider from "./context/UserContextProvider";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </StrictMode>
 );
