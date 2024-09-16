@@ -1,10 +1,9 @@
-import UserContext from "./UserContext";
+import UserContext, { IUserContext } from "./UserContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const UserContextProvider = ({ children }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [session, setSession] = useState<any>();
+const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const [session, setSession] = useState<IUserContext["session"]>(null);
 
   useEffect(() => {
     (async () => {
