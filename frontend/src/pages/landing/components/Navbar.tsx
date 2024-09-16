@@ -18,7 +18,6 @@ function Navbar() {
           withCredentials: true,
         }
       );
-      console.log(response.data.session);
       setSession(response.data.session);
     })();
   }, []);
