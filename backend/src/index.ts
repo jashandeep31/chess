@@ -8,6 +8,9 @@ import cors from "cors";
 // routes import
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
+import { Redis } from "ioredis";
+import RedisStore from "connect-redis";
+
 // ! strategy should be changed
 import "./lib/passport";
 
@@ -17,8 +20,15 @@ const RANDOM_NUMBER = Math.floor(Math.random() * 1000);
 const PORT = process.env.PORT || 8000;
 
 // app config
+
+const client = new Redis({
+  host: "localhost",
+  port: 6379,
+});
+
 // ! change this on the production with the values like secure and httpOnly etc.
 const expressSessionConfig: expressSession.SessionOptions = {
+  store: new RedisStore({ client: client }),
   secret: "secureme",
   resave: false,
   saveUninitialized: false,
