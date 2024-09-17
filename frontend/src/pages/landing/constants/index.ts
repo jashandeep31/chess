@@ -2,7 +2,7 @@ const navLinks = [
   { tag: "Home", link: "/" },
   {
     tag: "Lobby",
-    link: "/Lobby",
+    link: "/lobby",
   },
   {
     tag: "About",
