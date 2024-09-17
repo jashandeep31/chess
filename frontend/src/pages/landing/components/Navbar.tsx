@@ -29,7 +29,8 @@ function Navbar() {
         </ul>
 
         {session ? (
-          <div>
+          <div className="flex gap-1 items-center ">
+            <a href="http://localhost:8000/api/v1/auth/logout">Logout</a>
             <img src={session.avatar} className="h-10 rounded-full" />
           </div>
         ) : (

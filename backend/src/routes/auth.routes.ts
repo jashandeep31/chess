@@ -10,4 +10,13 @@ routes.route("/google/callback").get(
   })
 );
 
+routes.route("/logout").get((req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("http://localhost:5173/");
+  });
+});
+
 export default routes;

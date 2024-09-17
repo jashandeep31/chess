@@ -1,6 +1,16 @@
+import { useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
+import UserContext from "@/context/UserContext";
+import { useNavigate } from "react-router-dom";
 
-function landing() {
+function Landing() {
+  const { session } = useContext(UserContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (session) {
+      navigate("/lobby");
+    }
+  }, [session, navigate]);
   return (
     <>
       <Navbar />
@@ -12,4 +22,4 @@ function landing() {
   );
 }
 
-export default landing;
+export default Landing;
