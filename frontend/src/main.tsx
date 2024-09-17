@@ -6,6 +6,7 @@ import LoginPage from "./pages/login/Login";
 import Chess from "./pages/chess/Chess";
 import Landing from "./pages/landing/Landing";
 import UserContextProvider from "./context/UserContextProvider";
+import Lobby from "./pages/lobby/Lobby";
 
 const router = createBrowserRouter([
   {
@@ -13,15 +14,11 @@ const router = createBrowserRouter([
     element: <Landing />,
   },
   {
-    path: "/chess",
-    element: (
-      <div className="container">
-        <h1>Play game</h1>
-      </div>
-    ),
+    path: "/lobby",
+    element: <Lobby />,
   },
   {
-    path: "/chess/:id",
+    path: "/lobby/:id",
     element: <Chess />,
   },
   {

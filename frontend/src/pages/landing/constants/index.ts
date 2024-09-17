@@ -1,8 +1,8 @@
 const navLinks = [
   { tag: "Home", link: "/" },
   {
-    tag: "Chess",
-    link: "/chess",
+    tag: "Lobby",
+    link: "/lobby",
   },
   {
     tag: "About",
