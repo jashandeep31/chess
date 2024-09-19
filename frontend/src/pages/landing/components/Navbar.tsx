@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 import { buttonVariants } from "@/components/ui/button";
 import { useContext } from "react";
 import UserContext from "@/context/UserContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function Navbar() {
   const { session } = useContext(UserContext);
@@ -29,10 +37,21 @@ function Navbar() {
         </ul>
 
         {session ? (
-          <div className="flex gap-1 items-center ">
-            <a href="http://localhost:8000/api/v1/auth/logout">Logout</a>
-            <img src={session.avatar} className="h-10 rounded-full" />
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <img src={session.avatar} className="h-10 rounded-full" />{" "}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Team</DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="http://localhost:8000/api/v1/auth/logout">Logout</a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ) : (
           <div>
             <Link
