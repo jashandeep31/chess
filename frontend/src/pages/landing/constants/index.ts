@@ -1,10 +1,6 @@
 const navLinks = [
   { tag: "Home", link: "/" },
   {
-    tag: "Lobby",
-    link: "/lobby",
-  },
-  {
     tag: "About",
     link: "/",
   },
@@ -14,4 +10,11 @@ const navLinks = [
   },
 ];
 
-export default navLinks;
+const dropLinks = [
+  {
+    tag: "My Profile",
+    link: "/profile",
+  },
+];
+
+export { navLinks, dropLinks };

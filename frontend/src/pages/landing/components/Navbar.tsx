@@ -1,16 +1,14 @@
-import { cn } from "@/lib/utils";
-import chess from "../assets/chess.svg";
-import navLinks from "../constants";
+import { chess, menu } from "../assets";
+import { navLinks, dropLinks } from "../constants";
 import { Link } from "react-router-dom";
-import { buttonVariants } from "@/components/ui/button";
 import { useContext } from "react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import UserContext from "@/context/UserContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -19,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full   p-4 flex items-center justify-around">
+      <nav className="w-full p-4 flex items-center md:justify-around justify-between">
         <Link
           to={`/`}
           className="flex items-center text-xl gap-2 cursor-pointer"
@@ -28,25 +26,35 @@ function Navbar() {
           <h1 className="font-semibold ">Chess</h1>
         </Link>
 
-        <ul className="flex gap-20 dark:text-teal-100  font-bold">
-          {navLinks.map((nav) => (
-            <li key={nav.tag}>
-              <Link to={nav.link}>{nav.tag}</Link>
-            </li>
-          ))}
-        </ul>
+        {/* for the desktop */}
+
+        {!session && (
+          <div className=" md:flex hidden">
+            <ul className="flex gap-20 dark:text-teal-100  font-bold">
+              {navLinks.map((nav) => (
+                <li key={nav.tag}>
+                  <Link to={nav.link}>{nav.tag}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {session ? (
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <img src={session.avatar} className="h-10 rounded-full" />{" "}
+              <img
+                src={session.avatar}
+                alt="menu"
+                className="h-10 object-contain cursor-pointer rounded-full"
+              />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Team</DropdownMenuItem>
+              {dropLinks.map((drop) => (
+                <DropdownMenuItem key={drop.tag}>
+                  <Link to={drop.link}>{drop.tag}</Link>
+                </DropdownMenuItem>
+              ))}
               <DropdownMenuItem>
                 <a href="http://localhost:8000/api/v1/auth/logout">Logout</a>
               </DropdownMenuItem>
@@ -54,15 +62,41 @@ function Navbar() {
           </DropdownMenu>
         ) : (
           <div>
-            <Link
-              to={`/login`}
-              className={cn(
-                buttonVariants(),
-                "bg-gradient-to-r from-indigo-700 to-purple-600"
-              )}
-            >
-              login
-            </Link>
+            {/* for the desktop */}
+            <div className="md:flex hidden">
+              <Link
+                to={`/login`}
+                className={cn(
+                  buttonVariants(),
+                  "bg-gradient-to-r from-indigo-700 to-purple-600"
+                )}
+              >
+                Login
+              </Link>
+            </div>
+
+            {/* for the small screens */}
+            <div className="md:hidden flex flex-col justify-end item-center ">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <img
+                    src={menu}
+                    alt="menu"
+                    className="w-[28px] h-[28px] object-contain cursor-pointer"
+                  />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {navLinks.map((nav) => (
+                    <DropdownMenuItem key={nav.tag}>
+                      <Link to={nav.link}>{nav.tag}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuItem>
+                    <Link to={`/login`}>Login</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         )}
       </nav>
