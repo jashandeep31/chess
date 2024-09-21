@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./assets/styles/index.css";
 import UserContextProvider from "./context/UserContextProvider";
-import { Landing, Lobby, Chess, LoginPage, Profile } from "./pages";
+import { Chess, Landing, Lobby, LoginPage, Profile } from "./pages";
 
 const router = createBrowserRouter([
   {

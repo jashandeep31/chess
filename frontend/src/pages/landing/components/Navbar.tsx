@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="w-full p-4 flex items-center md:justify-around justify-between">
+      <nav className="container w-full p-4 flex items-center justify-between ">
         <Link
           to={`/`}
           className="flex items-center text-xl gap-2 cursor-pointer"
@@ -68,7 +68,7 @@ function Navbar() {
                 to={`/login`}
                 className={cn(
                   buttonVariants(),
-                  "bg-gradient-to-r from-indigo-700 to-purple-600"
+                  "bg-gradient-to-r from-green-900 to-green-500 font-bold"
                 )}
               >
                 Login
@@ -100,7 +100,6 @@ function Navbar() {
           </div>
         )}
       </nav>
-      <hr />
     </>
   );
 }
