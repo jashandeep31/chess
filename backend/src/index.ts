@@ -8,11 +8,13 @@ import cors from "cors";
 // routes import
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
+import gameRoutes from "./routes/game.routes";
 import { Redis } from "ioredis";
 import RedisStore from "connect-redis";
 
 // ! strategy should be changed
 import "./lib/passport";
+import { startSocketConnection } from "./socket";
 
 // setting up the .env file
 dotenv.config();
@@ -47,7 +49,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  path: "/socket/v1",
+  cors: {
+    origin: "http://localhost:5173",
+    credentials: true,
+  },
+});
+startSocketConnection(io);
 
 // server status app
 app.get("/", (req, res) => {
@@ -55,7 +64,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
-
+app.use(`/api/v1/game`, gameRoutes);
 server.listen(PORT, () => {
   console.log(`server running at http://localhost:${PORT}`);
 });

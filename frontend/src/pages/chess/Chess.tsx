@@ -3,12 +3,17 @@ import { chessBoxes as chessBoxesImport } from "./lib/chessBoxes";
 import ChessBox from "./components/ChessBox";
 import { intialState } from "./lib";
 import UserContext from "@/context/UserContext";
+import { socket } from "@/lib/socket";
 
 const Chess = () => {
   const [chessBoxes, setChessBoxes] = useState(chessBoxesImport);
   useEffect(() => {
     setChessBoxes([...intialState(chessBoxes)]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    socket.connect();
   }, []);
 
   const { session } = useContext(UserContext);
