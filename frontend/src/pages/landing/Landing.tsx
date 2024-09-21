@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import Navbar from "./components/Navbar";
+import { Navbar, Hero } from "./components";
 import UserContext from "@/context/UserContext";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +14,8 @@ function Landing() {
   return (
     <>
       <Navbar />
-      {/* <Hero />
-      <About />
+      <Hero />
+      {/*<About />
       <Tutorials />
       <Footer /> */}
     </>
