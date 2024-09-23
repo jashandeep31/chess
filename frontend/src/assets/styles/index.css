@@ -88,7 +88,7 @@
   filter: blur(750px);
 }
 
-.text-gradient {
+.text-green-gradient {
   background: -webkit-linear-gradient(#016115, #01f335);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

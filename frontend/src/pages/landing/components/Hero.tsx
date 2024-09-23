@@ -4,7 +4,7 @@ import CTA from "./CTA";
 function hero() {
   return (
     <>
-      <section className="container md:flex justify-between mt-10 ">
+      <section className="container md:flex justify-between ">
         {/* first half */}
         <div className="flex flex-col justify-center md:items-start items-center w-full">
           <h4 className="bg-gradient-to-r from-green-950 via-green-800 to-green-750 p-2 rounded-xl">
@@ -12,7 +12,7 @@ function hero() {
           </h4>
           <div className="flex items-center justify-center mt-10 ">
             <h1 className="lg:text-7xl md:text-6xl text-4xl font-bold md:text-start text-center">
-              Join The <span className="text-gradient">Ultimate</span>
+              Join The <span className="text-green-gradient">Ultimate</span>
             </h1>
           </div>
           <h1 className="lg:text-7xl text-4xl font-bold mt-2 md:text-start text-center">
@@ -27,7 +27,7 @@ function hero() {
         </div>
 
         {/* second half */}
-        <div className="flex relative w-full md:mt-0 mt-5">
+        <div className="flex relative w-full md:mt-0 mt-5 mb-20 pointer-events-none ">
           <img src={mobilechess} alt="mobilechess" className="z-[5] relative" />
 
           {/* gradient start / background lighting */}
