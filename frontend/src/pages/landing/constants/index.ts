@@ -6,10 +6,6 @@ const navLinks = [
     tag: "Features",
     link: "#features",
   },
-  {
-    tag: "Tutorials",
-    link: "/",
-  },
 ];
 
 const dropLinks = [
@@ -34,4 +30,13 @@ const features = [
   },
 ];
 
-export { navLinks, dropLinks, features };
+const contributers = [
+  {
+    name: "Ishan Dhingra",
+  },
+  {
+    name: "Jashandeep Singh",
+  },
+];
+
+export { navLinks, dropLinks, features, contributers };

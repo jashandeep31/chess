@@ -54,6 +54,7 @@ function Features() {
             </div>
             <div className="w-full pointer-events-none flex md:justify-end justify-center relative ">
               <img src={play} alt="learn" className="relative z-[5]" />
+              <div className="absolute z-[0] left-1 top-0 w-[60%] h-[60%] rounded-full blue__gradient" />
             </div>
           </div>
         </div>
