@@ -33,7 +33,11 @@ function Navbar() {
             <ul className="flex gap-20 dark:text-teal-100  font-bold">
               {navLinks.map((nav) => (
                 <li key={nav.tag}>
-                  <Link to={nav.link}>{nav.tag}</Link>
+                  {nav.link == "#features" ? (
+                    <a href={nav.link}>{nav.tag}</a>
+                  ) : (
+                    <Link to={nav.link}>{nav.tag}</Link>
+                  )}
                 </li>
               ))}
             </ul>
