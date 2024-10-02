@@ -14,7 +14,7 @@ import RedisStore from "connect-redis";
 
 // ! strategy should be changed
 import "./lib/passport";
-import { startSocketConnection } from "./socket";
+import { initSocket } from "./socket";
 
 // setting up the .env file
 dotenv.config();
@@ -56,7 +56,7 @@ const io = new Server(server, {
     credentials: true,
   },
 });
-startSocketConnection(io);
+initSocket(io);
 
 // server status app
 app.get("/", (req, res) => {

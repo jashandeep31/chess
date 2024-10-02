@@ -37,15 +37,15 @@ model Game {
   id              String     @id @default(cuid())
   player1         User       @relation("Player1Games", fields: [player1Id], references: [id])
   player1Id       String
-  player2         User       @relation("Player2Games", fields: [player2Id], references: [id])
-  player2Id       String
+  player2         User?      @relation("Player2Games", fields: [player2Id], references: [id])
+  player2Id       String?
   winner          User?      @relation("WinnerGames", fields: [winnerId], references: [id])
   winnerId        String?
   Move            Move[]
   createdAt       DateTime   @default(now())
   updatedAt       DateTime   @updatedAt
-  player1TimeLeft Int
-  player2TimeLeft Int
+  player1TimeLeft Int        @default(600)
+  player2TimeLeft Int        @default(600)
   status          GameStatus @default(PLAYING)
 }
 

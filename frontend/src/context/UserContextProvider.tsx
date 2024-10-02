@@ -13,7 +13,6 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
           withCredentials: true,
         }
       );
-      console.log(response.data.session);
       setSession(response.data.session);
     })();
   }, []);

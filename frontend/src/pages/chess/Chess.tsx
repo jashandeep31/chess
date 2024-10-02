@@ -3,27 +3,41 @@ import { chessBoxes as chessBoxesImport } from "./lib/chessBoxes";
 import ChessBox from "./components/ChessBox";
 import { intialState } from "./lib";
 import UserContext from "@/context/UserContext";
-import { socket } from "@/lib/socket";
+import { useParams } from "react-router-dom";
+import useSocket from "@/hooks/useSocket";
 
 const Chess = () => {
   const [chessBoxes, setChessBoxes] = useState(chessBoxesImport);
+  const { id } = useParams<{ id: string }>();
   useEffect(() => {
     setChessBoxes([...intialState(chessBoxes)]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    socket.connect();
-  }, []);
-
   const { session } = useContext(UserContext);
+  const { game, socketHandler } = useSocket();
+  useEffect(() => {
+    if (!id) return;
+    if (!game) {
+      socketHandler?.joinGame(id);
+    }
+  }, [game, id, socketHandler]);
+
+  console.log(game);
+  if (!session) return <div>loading...</div>;
+  if (!game) return <div>loading...</div>;
 
   return (
     <div className="container min-h-screen flex flex-col justify-center">
       <div className="flex flex-col items-center lg:w-1/2 md:w-3/5 sm:w-4/5 w-full sm:mx-auto">
-        <div className="flex flex-row w-full gap-5 mb-2 items-center">
-          <img src={session?.avatar} className="rounded-full h-[40px]" />
-          {session?.name}
+        <div className="flex w-full justify-between">
+          <div className="flex flex-row w-full gap-5 mb-2 items-center">
+            <img src={game.player1.avatar} className="rounded-full h-[40px]" />
+            {game.player1.name}
+          </div>
+          <div>
+            <span className="border">{id}</span>
+          </div>
         </div>
         <div className="w-full ">
           {[...chessBoxes].reverse().map((row, parentIndex) => {
@@ -42,8 +56,8 @@ const Chess = () => {
           })}
         </div>
         <div className="flex flex-row w-full gap-5 mt-2 justify-end items-center">
-          {session?.name}
-          <img src={session?.avatar} className="rounded-full h-[40px]" />
+          {game.player2?.name}
+          <img src={game.player2?.avatar} className="rounded-full h-[40px]" />
         </div>
       </div>
     </div>

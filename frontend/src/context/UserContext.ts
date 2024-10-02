@@ -5,6 +5,7 @@ export interface IUserContext {
     name: string;
     email: string;
     avatar: string;
+    id: string;
   };
   setSession: React.Dispatch<React.SetStateAction<IUserContext["session"]>>;
 }
