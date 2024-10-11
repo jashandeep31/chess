@@ -4,7 +4,7 @@ import CTA from "./CTA";
 function hero() {
   return (
     <>
-      <section className="container md:flex justify-between ">
+      <section className="container mt-20 md:flex justify-between ">
         {/* first half */}
         <div className="flex flex-col justify-center md:items-start items-center w-full">
           <h4 className="bg-gradient-to-r from-green-950 via-green-800 to-green-750 p-2 rounded-xl">
