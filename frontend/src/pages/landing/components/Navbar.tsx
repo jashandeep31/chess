@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="container mb-20 w-full p-4 flex items-center justify-between ">
+      <nav className="container  w-full p-4 flex items-center justify-between ">
         <Link
           to={`/`}
           className="flex items-center text-xl gap-2 cursor-pointer"

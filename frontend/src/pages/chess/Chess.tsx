@@ -29,14 +29,20 @@ const Chess = () => {
 
   return (
     <div className="container min-h-screen flex flex-col justify-center">
+      <div className="text-center mb-10 flex justify-center gap-5">
+        <h1>
+          <span className="text-green-gradient"> Lobby Code</span> :{" "}
+          <span className="textToCopy border">{id}</span>
+        </h1>
+        <button>
+          <i className="fa-solid fa-copy"></i>
+        </button>
+      </div>
       <div className="flex flex-col items-center lg:w-1/2 md:w-3/5 sm:w-4/5 w-full sm:mx-auto">
         <div className="flex w-full justify-between">
           <div className="flex flex-row w-full gap-5 mb-2 items-center">
             <img src={game.player1.avatar} className="rounded-full h-[40px]" />
             {game.player1.name}
-          </div>
-          <div>
-            <span className="border">{id}</span>
           </div>
         </div>
         <div className="w-full ">
