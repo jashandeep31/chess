@@ -29,12 +29,12 @@ const Chess = () => {
 
   return (
     <div className="container min-h-screen flex flex-col justify-center">
-      <div className="text-center mb-10 flex justify-center gap-5">
+      <div className="text-center mb-10 flex justify-center items-center gap-5">
         <h1>
           <span className="text-green-gradient"> Lobby Code</span> :{" "}
-          <span className="textToCopy border">{id}</span>
+          <span className=" border-2 border-zinc-900 p-2">{id}</span>
         </h1>
-        <button>
+        <button className="border-2 border-zinc-900 py-1 px-2">
           <i className="fa-solid fa-copy"></i>
         </button>
       </div>
