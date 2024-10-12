@@ -23,6 +23,17 @@ const Chess = () => {
     }
   }, [game, id, socketHandler]);
 
+  const [toggle, settoggle] = useState(false);
+
+  function copy() {
+    if (!id) return;
+    navigator.clipboard.writeText(id);
+    settoggle((prev) => !prev);
+    setTimeout(() => {
+      settoggle((prev) => !prev);
+    }, 3000);
+  }
+
   console.log(game);
   if (!session) return <div>loading...</div>;
   if (!game) return <div>loading...</div>;
@@ -34,8 +45,12 @@ const Chess = () => {
           <span className="text-green-gradient"> Lobby Code</span> :{" "}
           <span className=" border-2 border-zinc-900 p-2">{id}</span>
         </h1>
-        <button className="border-2 border-zinc-900 py-1 px-2">
-          <i className="fa-solid fa-copy"></i>
+        <button onClick={copy} className="border-2 border-zinc-900 py-1 px-2">
+          {!toggle ? (
+            <i className="fa-solid fa-copy"></i>
+          ) : (
+            <i className="fa-solid fa-check"></i>
+          )}
         </button>
       </div>
       <div className="flex flex-col items-center lg:w-1/2 md:w-3/5 sm:w-4/5 w-full sm:mx-auto">

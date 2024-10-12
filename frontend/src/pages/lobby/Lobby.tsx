@@ -5,6 +5,7 @@ import Navbar from "../landing/components/Navbar";
 import { useContext, useState } from "react";
 import UserContext from "@/context/UserContext";
 import useSocket from "@/hooks/useSocket";
+import { Footer } from "../landing/components";
 
 function Lobby() {
   const { session } = useContext(UserContext);
@@ -85,6 +86,7 @@ function Lobby() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -3,7 +3,6 @@ import { contributers } from "../constants";
 function footer() {
   return (
     <>
-      <hr />
       <div className="md:flex items-center justify-around">
         {/* left side */}
         <div className="flex items-center justify-center gap-10 m-10">
