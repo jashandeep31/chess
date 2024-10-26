@@ -1,40 +1,39 @@
-import { cn } from "@/lib/utils";
-import { IChessBox } from "../lib/chessBoxes";
+import { ChessBox as IChessBox } from "../lib";
+import { charToIndex } from "../lib/charToIndex";
 
-const ChessBox = ({
-  col,
-  index,
-  parentIndex,
-}: {
-  col: IChessBox;
-  index: number;
-  parentIndex: number;
-}) => {
+const ChessBox = ({ box }: { box: IChessBox }) => {
   return (
     <div
-      className={` aspect-square  flex items-center justify-center border ${
-        index % 2 !== 0 && parentIndex % 2 !== 0
+      className={`aspect-square border flex justify-center items-center  relative ${
+        charToIndex(box.col) % 2 !== 0 && box.row % 2 !== 0
           ? "bg-[#ebeccf]"
           : ""
-      } 
+      }
       ${
-        index % 2 === 0 && parentIndex % 2 === 0
+        charToIndex(box.col) % 2 === 0 && box.row % 2 === 0
           ? "bg-[#ebeccf]"
           : ""
-      } 
+      }
       ${
-        index % 2 === 0 && parentIndex % 2 !== 0
+        charToIndex(box.col) % 2 === 0 && box.row % 2 !== 0
           ? "bg-green-500"
           : ""
-      } 
+      }
       ${
-        index % 2 !== 0 && parentIndex % 2 === 0
+        charToIndex(box.col) % 2 !== 0 && box.row % 2 === 0
           ? "bg-green-500"
           : ""
-      } 
+      }
            `}
     >
-      {col.piece ? <i className={cn(col.piece, "sm:text-4xl text-3xl ")}></i> : null}
+      {box.piece && (
+        <i
+          className={`fa-solid fa-chess-${box.piece.name} text-4xl text-${box.piece.team} `}
+        ></i>
+      )}
+      <span className="text-sm absolute bottom-0 left-0">
+        {box.col},{box.row}
+      </span>
     </div>
   );
 };
